@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dino game :)</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div id="game">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>
+
+
+    <script>
+        var char = document.getElementById("character");
+
+        document.addEventListener("click", jump);
+
+        function jump() {
+            if (char.classList != "jump") {
+                char.classList.add("jump");
+                setTimeout(removeJump, 300);
+            }
+        }
+
+        function removeJump() {
+            char.classList.remove("jump");
+        }
+
+        var block = document.getElementById("block");
+        function checkDead() {
+            let charTop = parseInt(window.getComputedStyle(char).getPropertyValue("top"));
+            let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+            if(blockLeft < 20 && blockLeft > -20 && charTop >= 430) {
+                alert("Game Over!")
+            }
+        }
+
+        setInterval(checkDead, 10)
+
+    </script>
+
+</body>
+
+</html>

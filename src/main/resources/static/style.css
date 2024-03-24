@@ -1,0 +1,50 @@
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+#game {
+    height: 600px;
+    width: 1100px;
+    border: 1px solid #343434;
+    margin: auto;
+}
+
+#character {
+    width: 20px;
+    height: 50px;
+    background-color: darksalmon;
+    position: relative;
+    top: 450px;
+}
+
+@keyframes jump {
+    0% { top: 450px }
+    30% { top: 300px }
+    70% { top: 300px }
+    100% { top: 450px }
+
+}
+
+.jump {
+    animation: jump 300ms linear;
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: aquamarine;
+    position: relative;
+    top: 430px;
+    left: 1080px;
+    animation: block 1s infinite linear;
+}
+
+@keyframes block {
+    0% { left: 1100px }
+    100% { left: -20px }
+}
+
