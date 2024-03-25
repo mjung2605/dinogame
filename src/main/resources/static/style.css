@@ -3,20 +3,39 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-
+    background-color: #fef5ff;
 }
 
 #game {
     height: 600px;
-    width: 1100px;
-    border: 1px solid #343434;
+    width: 1000px;
+    box-shadow: inset 0 4px 4px rgba(255, 178, 178, 0.25);
     margin: auto;
+    overflow: hidden;
 }
 
+#background {
+    height: 100%;
+    width: 3300px;
+    position: relative;
+    top: -300px;
+    background-image: url("bgs/bg-full.png");
+
+    animation: bg-move 15s infinite linear;
+    z-index: -1
+}
+
+@keyframes bg-move {
+    0% { transform: translate3d(0, 0, 0) }
+    100% { transform: translate3d(-1008px, 0, 0) }
+}
+
+
 #character {
-    width: 20px;
-    height: 50px;
-    background-color: darksalmon;
+    width: auto;
+    height: 50%;
+    background-image: url("chars/dino1.png");
+    background-repeat: no-repeat;
     position: relative;
     top: 450px;
 }
@@ -38,7 +57,7 @@ body {
     height: 20px;
     background-color: aquamarine;
     position: relative;
-    top: 430px;
+    top: 230px;
     left: 1080px;
     animation: block 1s infinite linear;
 }
