@@ -15,6 +15,7 @@
 <body>
     <div id="title" class="josefin-sans-bold"><h1>mei's dino game</h1></div>
     <div id="game">
+        <div id="score"><h3 class="josefin-sans-bold">0000</h3></div>
         <div id="character"></div>
         <div id="block"></div>
         <div id="bg1"></div>
@@ -25,7 +26,10 @@
 
 
     <script>
-        var char = document.getElementById("character");
+
+        /* Character Controls */
+
+        const char = document.getElementById("character");
 
         document.addEventListener("click", jump);
 
@@ -40,16 +44,23 @@
             char.classList.remove("jump");
         }
 
-        var block = document.getElementById("block");
+        /* Collision/Death Check */
+
+        const block = document.getElementById("block");
+
         function checkDead() {
             let charTop = parseInt(window.getComputedStyle(char).getPropertyValue("top"));
             let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
             if(blockLeft < 20 && blockLeft > -20 && charTop >= 430) {
-
+                isDead = true;
             }
         }
-
         setInterval(checkDead, 10)
+
+        /* Score Logic */
+        let score = 0;
+        let isDead = false;
+
 
     </script>
 
